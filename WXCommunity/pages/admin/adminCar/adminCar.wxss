@@ -1,0 +1,40 @@
+/* pages/admin/adminCar/adminCar.wxss */
+.nav {
+  white-space: nowrap;
+  pad: 5rpx 0;
+}
+
+.nav_item {
+  width: 287rpx;
+  text-align: center;
+  padding: 20rpx 45rpx;
+  font-size: 30rpx;
+  display: inline-block;
+  border-bottom: 1px solid #eee;
+}
+
+.nav_item.active {
+  border-bottom: 5rpx solid #35bb66;
+}
+
+.middle{
+  height: 30rpx;
+  background-color: rgb(244, 242, 242);
+}
+
+
+.data-item-out {
+  margin: 20rpx;
+}
+.data-item-type {
+  margin-left: 5rpx;
+  border-bottom: 1px solid #eee;
+}
+.data-item-que {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 700rpx;
+  height: 200rpx;
+  border-bottom: 1px solid #eee;
+}

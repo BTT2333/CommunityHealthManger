@@ -1,0 +1,103 @@
+/* pages/mine/mine.wxss */
+page{
+  background-color: #f6f6f6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+.mine-top{
+  width: 100%;
+  height: 510rpx;
+}
+
+/* userinfo */
+.userinfo{
+  position: absolute;
+  left: 45rpx;
+  top: 310rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.userinfo-avatar{ 
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 10%;
+}
+.userinfo-nickname{
+  font-size: 30rpx;
+  color: white;
+  margin-left: 15rpx;
+  margin-bottom: -20rpx;
+}
+
+/* card-health */
+.card-health{
+  height: 460rpx;
+  width: 700rpx;
+  border-radius: 15rpx;
+  background-color: white;
+  box-shadow: 2px 2px 1px #eee;
+  position: absolute;
+  top: 415rpx;
+}
+.card-health-repo{
+  font-size: 35rpx;
+  font-weight: 300;
+  margin-top: 25rpx;
+  border-radius: 62rpx;
+  background-color: #758cff;
+  color: white;
+  box-shadow: 2px 5px 5px 0px #8b9eff;
+}
+
+.card-health-text{
+  margin-left: 25rpx;
+  margin-right: 30rpx;
+}
+.card-health-date{
+  margin: 20rpx 0rpx;
+}
+.card-health-status{
+  font-size: 35rpx;
+  font-weight: 530;
+}
+.card-health-status-info{
+  color: #aaa;
+  font-size: 32rpx;
+  font-weight: 530;
+}
+
+/* 行程登记 */
+.tips{
+  width: 700rpx;
+  height: 160rpx;
+  background-color: white;
+  border-radius: 15rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40rpx;
+  box-shadow: 5px 5px 5px #eee;
+}
+.tips-out{
+  width: 550rpx;
+  display: flex;
+  align-items: center;
+}
+.tips-img{
+  width: 85rpx;
+  height: 85rpx;
+}
+.tips-text{
+  margin-left: 70rpx;
+  width: 400rpx;
+}
+.tips-text1{
+  font-size: 40rpx;
+}
+.tips-text2{
+  font-size: 30rpx;
+  color: #aaa;
+}

@@ -1,0 +1,45 @@
+<!--pages/admin/adminLogin/adminLogin.wxml-->
+<view class="page" data-weui-theme="{{theme}}">
+	<view class="weui-form">
+		<view class="weui-form__text-area">
+			<h2 class="weui-form__title">管理员登陆</h2>
+			<view class="weui-form__desc">请输入管理员账号密码</view>
+		</view>
+		<view class="weui-form__control-area">
+			<view class="weui-cells__group weui-cells__group_form">
+				<view class="weui-cells weui-cells_form">
+					<view class="weui-cell weui-cell_active">
+						<view class="weui-cell__hd"><label class="weui-label">账号</label></view>
+						<view class="weui-cell__bd">
+							<input class="weui-input" bindinput="nameInput" placeholder="填写管理员账号" placeholder-class="weui-input__placeholder" />
+						</view>
+					</view>
+
+					<view class="weui-cell weui-cell_active">
+						<view class="weui-cell__hd">
+							<label class="weui-label">密码</label>
+						</view>
+						<view class="weui-cell__bd">
+							<input class="weui-input" bindinput="pwdInput" placeholder="填写管理员密码" type="password" placeholder-class="weui-input__placeholder" />
+						</view>
+					</view>
+
+				</view>
+			</view>
+		</view>
+		
+		<view class="weui-form__opr-area" bindtap="login">
+			<a class="weui-btn weui-btn_primary">确定</a>
+		</view>
+	</view>
+</view>
+
+<view wx:if="{{topTips}}" class="weui-toptips weui-toptips_warn fadeIn {{hide ? 'fadeOut' : ''}}">账号/密码错误</view>
+
+<view class="fadeIn {{hideToast ? 'fadeOut' : ''}}" wx:if="{{toast}}">
+	<view class="weui-mask_transparent"></view>
+	<view class="weui-toast">
+		<i class="weui-icon-success-no-circle weui-icon_toast"></i>
+		<view class="weui-toast__content">已完成</view>
+	</view>
+</view>

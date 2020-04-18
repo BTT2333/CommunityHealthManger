@@ -1,0 +1,26 @@
+<!--pages/admin/adminCar/adminCar.wxml-->
+<view class="nac_warp">
+	<scroll-view class="nav" scroll-x>
+		<view bindtap="activeNav" data-index="0" class="nav_item {{currentIndexNav==0?'active':''}}">
+			明日车辆预约
+		</view>
+		<view bindtap="activeNav" data-index="1" class="nav_item {{currentIndexNav==1?'active':''}}">
+			未来车辆预约
+		</view>
+	</scroll-view>
+</view>
+
+<view class="data">
+	<view class="data-item" wx:for="{{dataList}}" wx:key="key">
+		<view class="data-item-out">
+			<view class="data-item-type">预约时间：{{item.c_date}}</view>
+			<view class="data-item-que">
+				<view class="data-item-reason">预约理由：{{item.c_reason}}</view>
+				<view class="data-item-long">预约时长：{{item.c_hour}}</view>
+			</view>
+			<view class="data-item-name">联系人：{{item.u_name}}</view>
+			<view class="data-item-phone">联系电话：{{item.u_phone}}</view>
+		</view>
+		<view class="middle"></view>
+	</view>
+</view>

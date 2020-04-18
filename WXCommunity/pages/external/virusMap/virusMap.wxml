@@ -1,0 +1,2 @@
+<!--pages/external/virusMap/virusMap.wxml-->
+<web-view src="https://voice.baidu.com/act/newpneumonia/newpneumonia/?from=osari_pc_3#tab0"></web-view>

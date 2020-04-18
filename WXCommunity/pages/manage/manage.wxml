@@ -1,0 +1,34 @@
+<!--pages/manage/manage.wxml-->
+<view class="slides">
+	<swiper autoplay="true" indicator-dots="true">
+		<swiper-item wx:for="{{swiperList}}" wx:key="key">
+			<image mode="widthFix" src="{{item.url}}"></image>
+		</swiper-item>
+	</swiper>
+</view>
+
+<view class="bottom">
+
+	<view class="notice">
+		<view class="notice-in">
+			<image class="notice-img" src="../../img/icon/notice2.png"></image>
+			<view class="notice-text">
+				<view class="notice-text1">通知公告</view>
+				<view class="notice-text2">{{notice}}</view>
+			</view>
+		</view>
+	</view>
+
+
+		<view class="service-title">便民服务</view>
+	<view class="service">
+		<view class="service_item" wx:for="{{serviceList}}" wx:key="key" id="{{item.id}}" bindtap="goToService">
+			<view class="service_item_text">{{item.name}}</view>
+      <image src="../../img/icon/line.png" class="bg-line"></image>
+      <view class="service_item_text-1">{{item.intro}}</view>
+      <image src="{{item.url}}" class="bg-line-lo"></image>
+		</view>
+
+	</view>
+
+</view>

@@ -1,0 +1,2 @@
+<!--pages/external/virusNews/virusNews.wxml-->
+<web-view src="https://xw.qq.com/m/antip"></web-view>

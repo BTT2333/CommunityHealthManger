@@ -1,0 +1,9 @@
+/* pages/admin/adminLogin/adminLogin.wxss */
+
+.weui-toptips {
+  display: block
+}
+.weui-form__opr-area{
+  position: relative;
+  top: 130rpx;
+}

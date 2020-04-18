@@ -1,0 +1,2 @@
+<!--pages/external/breakRumor/breakRumor.wxml-->
+<web-view src="https://vp.fact.qq.com/home"></web-view>

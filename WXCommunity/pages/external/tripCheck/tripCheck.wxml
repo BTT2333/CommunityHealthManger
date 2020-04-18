@@ -1,0 +1,2 @@
+<!--pages/external/tripCheck/tripCheck.wxml-->
+<web-view src="https://u1qa5f.smartapps.cn/pages/epidemic/index"></web-view>

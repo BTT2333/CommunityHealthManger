@@ -1,0 +1,96 @@
+<!--pages/service/ownerRegister/ownerRegister.wxml-->
+<view class="page" data-weui-theme="{{theme}}">
+	<view class="weui-form">
+		<view class="weui-form__text-area">
+			<h2 class="weui-form__title">出入登记</h2>
+			<view class="weui-form__desc">请真实填写如下信息。</view>
+		</view>
+
+		<view class="weui-form__control-area">
+			<view class="weui-cells__group weui-cells__group_form">
+				<view class="weui-cells weui-cells_form">
+
+					<view class="weui-cell weui-cell_active">
+						<view class="weui-cell__hd">
+							<label class="weui-label">业主姓名</label>
+						</view>
+						<view class="weui-cell__bd">
+							<input class="weui-input" placeholder="请填写业主姓名" bindinput="inputName" placeholder-class="weui-input__placeholder" />
+						</view>
+					</view>
+
+
+					<view class="weui-cell weui-cell_active">
+						<view class="weui-cell__hd">
+							<label class="weui-label">联系电话</label>
+						</view>
+						<view class="weui-cell__bd">
+							<input class="weui-input" placeholder="请填写本人电话号码" bindinput="inputPhone" type="number" placeholder-class="weui-input__placeholder" />
+						</view>
+					</view>
+
+					<view class="weui-cell weui-cell_active">
+						<view class="weui-cell__hd">
+							<view class="weui-label">日期</view>
+						</view>
+						<view class="weui-cell__bd">
+							<picker mode="date" value="{{date}}" start="2020-01-01" end="2029-12-31" bindchange="bindDateChange">
+								<view class="weui-input">{{date}}</view>
+							</picker>
+						</view>
+					</view>
+
+					<view class="weui-cell weui-cell_active">
+						<view class="weui-cell__hd">
+							<view class="weui-label">时间</view>
+						</view>
+						<view class="weui-cell__bd">
+							<picker mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="bindTimeChange">
+								<view class="weui-input">{{time}}</view>
+							</picker>
+						</view>
+					</view>
+
+					<view class="weui-cell weui-cell_active weui-cell_select weui-cell_select-after">
+						<view class="weui-cell__hd">
+							<view class="weui-label">出行时间</view>
+						</view>
+						<view class="weui-cell__bd">
+							<picker bindchange="bindOutTimeChange" value="{{outTimeIndex}}" range="{{outTime}}">
+								<view class="weui-select weui-select_in-select-after">{{outTime[outTimeIndex]}}</view>
+							</picker>
+						</view>
+					</view>
+
+					<view class="weui-cells weui-cells_after-title">
+						<view class="weui-cell weui-cell_active">
+							<view class="weui-cell__bd">
+								<textarea class="weui-textarea" bindinput="inputReason" placeholder="请输入出行理由" style="height: 3.3em" />
+								<view class="weui-textarea-counter">0/200</view>
+              </view>
+            </view>
+        	</view>
+
+				</view>
+			</view>
+		</view>
+		
+		<view class="weui-form__tips-area">
+			<view class="weui-form__tips">
+				确保填写无误后提交
+			</view>
+		</view>
+		<view class="weui-form__opr-area">
+			<a class="weui-btn weui-btn_primary" bindtap="submit">确定</a>
+		</view>
+		
+	</view>
+</view>
+
+<view class="fadeIn {{hideToast ? 'fadeOut' : ''}}" wx:if="{{toast}}">
+	<view class="weui-mask_transparent"></view>
+	<view class="weui-toast">
+		<i class="weui-icon-success-no-circle weui-icon_toast"></i>
+		<view class="weui-toast__content">已完成</view>
+	</view>
+</view>

@@ -1,0 +1,51 @@
+<!--pages/login/login.wxml-->
+<view class="container">
+
+	<view class="login-icon">
+		<image class="login-img" src="../../img/image/head.jpg"></image>
+	</view>
+	<view class="login-from">
+
+		<!--账号-->
+		<view class="inputView">
+			<image class="nameImage" src="../../img/icon/login.png"></image>
+			<label class="loginLab">账号</label>
+			<input class="inputText" placeholder="请输入账号" bindinput="phoneInput" />
+		</view>
+		<view class="line"></view>
+		<!--密码-->
+		<view class="inputView">
+			<image class="keyImage" src="../../img/icon/pwd.png"></image>
+			<label class="loginLab">密码</label>
+			<input class="inputText" password="true" placeholder="请输入密码" bindinput="pwdInput" />
+		</view>
+		<!--按钮-->
+		<view class="loginBtnView">
+			<button class="loginBtn" type="primary" size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="login">登录</button>
+		</view>
+		<!--注册-->
+		<view class="registerBtnView">
+			<button class="registerBtn" type="primary" size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="register">注册</button>
+		</view>
+
+		<view class="weui-form__extra-area">
+			<view class="weui-footer">
+				<view class="weui-footer__links">
+					<a href="javascript:" bindtap="adminLogin" class="weui-footer__link">管理员入口</a>
+				</view>
+			</view>
+		</view>
+
+		<view wx:if="{{topTips}}" class="weui-toptips weui-toptips_warn fadeIn {{hide ? 'fadeOut' : ''}}">账号/密码错误</view>
+	</view>
+
+</view>
+
+
+<view class="fadeIn {{hideToast ? 'fadeOut' : ''}}" wx:if="{{toast}}">
+	<view class="weui-mask_transparent"></view>
+	<view class="weui-toast">
+		<i class="weui-icon-success-no-circle weui-icon_toast"></i>
+		<view class="weui-toast__content">已完成</view>
+	</view>
+</view>

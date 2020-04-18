@@ -1,0 +1,47 @@
+<!--pages/admin/adminHealth/adminHealth.wxml-->
+<wxs src="../../../utils/indexof.wxs" module="tools" />
+
+<view class="nac_warp">
+	<scroll-view class="nav" scroll-x>
+		<view bindtap="activeNav" data-index="0" class="nav_item {{currentIndexNav==0?'active':''}}">
+			昨日发热情况
+		</view>
+		<view bindtap="activeNav" data-index="1" class="nav_item {{currentIndexNav==1?'active':''}}">
+			异常人员统计
+		</view>
+	</scroll-view>
+</view>
+
+<view class="data" wx:if="{{currentIndexNav==0}}">
+	<view class="data-item" wx:for="{{dataList}}" wx:key="key">
+		<view class="data-item-out">
+			<view class="data-item-type">上报时间：{{item.date}}</view>
+			<view class="data-item-temperature">体温：{{item.temperature}}℃</view>
+			<view class="data-item-reason">备注：{{item.otherRemarks}}</view>
+			<view class="data-item-long">住址：{{item.u_address}}栋{{item.u_doorplate}}</view>
+			<view class="data-item-name">联系人：{{item.u_name}}</view>
+			<view class="data-item-phone">联系电话：{{item.u_phone}}</view>
+      <view class="data-item-allStatus">
+				<view class="data-item-status isContact" wx:if="{{item.isContact==1}}">密接</view>
+				<view class="data-item-status healthy" wx:if="{{tools.indexOf(item.healthStatus, 'healthy')==true}}" >健康</view>
+				<view class="data-item-status fever" wx:if="{{tools.indexOf(item.healthStatus, 'fever')==true}}" >发热</view>
+				<view class="data-item-status cough" wx:if="{{tools.indexOf(item.healthStatus, 'cough')==true}}">咳嗽</view>
+				<view class="data-item-status chest" wx:if="{{tools.indexOf(item.healthStatus, 'chest')==true}}">胸闷</view>
+		</view>
+    </view>
+		<view class="middle"></view>
+	</view>
+</view>
+
+<view class="data" wx:if="{{currentIndexNav==1}}">
+	<view class="data-item" wx:for="{{dataList}}" wx:key="key">
+		<view class="data-item-out">
+			<view class="data-item-name">联系人：{{item.u_name}}</view>
+			<view class="data-item-phone">联系电话：{{item.u_phone}}</view>
+			<view class="data-item-sex">性别：{{item.u_sex}}</view>
+			<view class="data-item-age">年龄：{{item.u_age}}</view>
+			<view class="data-item-long">住址：{{item.u_address}}栋{{item.u_doorplate}}</view>
+		</view>
+		<view class="middle"></view>
+	</view>
+</view>

@@ -1,0 +1,59 @@
+<!--pages/mine/mine.wxml-->
+
+<image class="mine-top" src="../../img/image/main_banner.png"></image>
+
+<!-- 获取头像 昵称 -->
+<view class="container">
+	<view class="userinfo">
+		<button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+		<block wx:else>
+			<image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+			<text class="userinfo-nickname">{{userInfo.nickName}}</text>
+		</block>
+	</view>
+</view>
+
+<view class="card-health">
+	<button class="card-health-repo" bindtap="goToHealthRepo">■ 今日健康打卡</button>
+	<view class="card-health-text">
+		<view class="card-health-date">{{date}}</view>
+		<view style="margin-bottom:25rpx">
+			<text class="card-health-status">健康状态：</text>
+			<text class="card-health-status-info">{{health_status}}</text>
+		</view>
+		<view>
+			<text class="card-health-status">行程排查：</text>
+			<text class="card-health-status-info">{{trip_repo}}</text>
+		</view>
+	</view>
+</view>
+
+<view class="tips">
+	<view class="tips-out" bindtap="goToTripCheck">
+		<image src="../../img/icon/trip.png" class="tips-img"></image>
+		<view class="tips-text">
+			<view class="tips-text1">行程登记</view>
+			<view class="tips-text2">填写行程，查询病患同行情况</view>
+		</view>
+	</view>
+</view>
+
+<view class="tips">
+	<view class="tips-out" bindtap="goToProgramDX">
+		<image src="../../img/icon/warn.png" class="tips-img"></image>
+		<view class="tips-text">
+			<view class="tips-text1">疫情辟谣</view>
+			<view class="tips-text2">科学分析，认真求证疫情资讯</view>
+		</view>
+	</view>
+</view>
+
+<view class="tips">
+	<view class="tips-out" bindtap="goToVirusMap">
+		<image src="../../img/icon/map.png" class="tips-img"></image>
+		<view class="tips-text">
+			<view class="tips-text1">全国疫情地图</view>
+			<view class="tips-text2">来看看全国疫情分布吧</view>
+		</view>
+	</view>
+</view>

@@ -1,0 +1,83 @@
+<!--pages/service/virusRegister/virusRegister.wxml-->
+<view class="page" data-weui-theme="{{theme}}">
+	<view class="weui-form">
+		<view class="weui-form__text-area">
+			<h2 class="weui-form__title">新冠重症登记</h2>
+			<view class="weui-form__desc">请真实填写如下信息。</view>
+		</view>
+
+		<view class="weui-form__control-area">
+			<view class="weui-cells__group weui-cells__group_form">
+				<view class="weui-cells weui-cells_form">
+
+					<view class="weui-cell weui-cell_active">
+						<view class="weui-cell__hd">
+							<label class="weui-label">患者姓名</label>
+						</view>
+						<view class="weui-cell__bd">
+							<input class="weui-input" placeholder="请填写患者姓名" bindinput="nameInput" placeholder-class="weui-input__placeholder" />
+						</view>
+					</view>
+
+					<view class="weui-cell weui-cell_active">
+						<view class="weui-cell__hd">
+							<label class="weui-label">家属联系电话</label>
+						</view>
+						<view class="weui-cell__bd">
+							<input class="weui-input" placeholder="请填写家属电话号码" type="number" bindinput="phoneInput" placeholder-class="weui-input__placeholder" />
+						</view>
+					</view>
+
+					<view class="weui-cell weui-cell_active">
+						<view class="weui-cell__hd">
+							<label class="weui-label">所在医院</label>
+						</view>
+						<view class="weui-cell__bd">
+							<input class="weui-input" placeholder="请填写患者所在医院" bindinput="hospitalInput"  placeholder-class="weui-input__placeholder" />
+						</view>
+					</view>
+
+					<view class="weui-cell weui-cell_active">
+						<view class="weui-cell__hd">
+							<view class="weui-label">住院日期</view>
+						</view>
+						<view class="weui-cell__bd">
+							<picker mode="date" value="{{date}}" start="2019-12-01" end="2029-12-31" bindchange="bindDateChange">
+								<view class="weui-input">{{date}}</view>
+							</picker>
+						</view>
+					</view>
+
+
+					<view class="weui-cells weui-cells_after-title">
+						<view class="weui-cell weui-cell_active">
+							<view class="weui-cell__bd">
+								<textarea class="weui-textarea" bindinput="otherInput" placeholder="备注" style="height: 3.3em" />
+								<view class="weui-textarea-counter">0/200</view>
+              </view>
+            </view>
+        	</view>
+
+				</view>
+			</view>
+		</view>
+		
+		<view class="weui-form__tips-area">
+			<view class="weui-form__tips">
+				确保填写无误后提交
+			</view>
+		</view>
+		<view class="weui-form__opr-area">
+			<a class="weui-btn weui-btn_primary" bindtap="submit">确定</a>
+		</view>
+		
+	</view>
+</view>
+
+<view class="fadeIn {{hideToast ? 'fadeOut' : ''}}" wx:if="{{toast}}">
+	<view class="weui-mask_transparent"></view>
+	<view class="weui-toast">
+		<i class="weui-icon-success-no-circle weui-icon_toast"></i>
+		<view class="weui-toast__content">已完成</view>
+	</view>
+</view>

@@ -1,0 +1,40 @@
+<!--pages/healthRepo/healthRepo.wxml-->
+<form bindsubmit="formSubmit">
+	<view class="form-wrap">
+
+		<scroll-view class="form-list" scroll-y="true">
+
+			<view class="form-area">
+				<text class="text">1、过去14天内是否接触过确诊或疑似病例</text>
+				<radio-group class="radio-group" bindchange="radioChange" name="isContact">
+					<radio class="radio" wx:for-items="{{items}}" wx:key="name" value="{{item.value}}" color="#fff">
+						<text>{{item.name}}</text>
+					</radio>
+				</radio-group>
+			</view>
+
+			<view class="form-area">
+				<text class="text">2、今日体温</text>
+				<view class="body-view">
+					<slider bindchange="temperatureChange" min="34" max="42" step="0.1" backgroundColor="white" activeColor="#1296db" show-value />
+				</view>
+			</view>
+
+			<view class="form-area">
+				<text class="text" >3、当前健康情况</text>
+				<checkbox-group class="checkbox-group" bindchange="healthStatusChange" name="healthStatus" >
+					<checkbox class="checkbox" wx:for-items="{{healthItems}}" wx:key="name" value="{{item.value}}" color="#fff" style="margin-bottom:10rpx">
+						<text>{{item.name}}</text>
+					</checkbox>
+				</checkbox-group>
+			</view>
+
+			<view class="form-area">
+				<text class="text" >4、其他备注信息</text>
+				<input class="input" bindinput="otherInput" name="ps"></input>
+			</view>
+		</scroll-view>
+
+		<button formType="submit" class="button">完成打卡</button>
+	</view>
+</form>

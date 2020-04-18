@@ -1,0 +1,28 @@
+<!--pages/admin/adminProperty/adminProperty.wxml-->
+<view class="nac_warp">
+	<scroll-view class="nav" scroll-x>
+		<view bindtap="activeNav" data-index="0" class="nav_item {{currentIndexNav==0?'active':''}}">
+			未处理报修
+		</view>
+		<view bindtap="activeNav" data-index="1" class="nav_item {{currentIndexNav==1?'active':''}}">
+			全部报修
+		</view>
+	</scroll-view>
+</view>
+
+<view class="data">
+	<view class="data-item" wx:for="{{dataList}}" wx:key="key">
+	<view class="data-item-out">
+		<view class="data-item-type">{{item.p_type}}</view>
+		<view class="data-item-que">
+		<image class="data-item-img" src="../../../img/image/banner3.jpg"></image>
+		<view class="data-item-question">{{item.p_question}}</view>
+		</view>
+		<view class="data-item-name">联系人：{{item.p_name}}</view>
+		<view class="data-item-phone">联系电话：{{item.p_phone}}</view>
+		<view class="data-item-status done" wx:if="{{item.p_isCompleted==1}}" >已完成</view>
+		<view class="data-item-status not" wx:if="{{item.p_isCompleted==0}}" >待完成</view>
+		</view>
+		<view class="middle"></view>
+	</view>
+</view>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 
+	namespace:命名空间：一定唯一 ,必须是某个接口的完全限定名
+ -->
+<mapper namespace="indi.btt.dao.WXDao">
+	
+	<select id="queryImgByGenre" parameterType="int" resultType="indi.btt.domain.WXImg">
+		select * from t_img where genre = #{genre}
+	</select>
+</mapper>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace:命名空间：一定唯一 ,必须是某个接口的完全限定名 -->
+<mapper namespace="indi.btt.dao.VirusRegisterDao">
+
+	<insert id="addVirusRegister" parameterType="indi.btt.domain.VirusRegister">
+		INSERT INTO
+		t_serious (u_id, s_name, s_phone, s_hospital, s_date, s_other)
+		VALUES
+		(#{u_id}, #{s_name}, #{s_phone}, #{s_hospital}, #{s_date},
+		#{s_other});
+	</insert>
+
+	<select id="queryVirusRegisterByName" parameterType="String"
+		resultType="indi.btt.domain.VirusRegister">
+		SELECT * FROM t_serious where s_name = #{s_name};
+	</select>
+
+	<select id="queryVirusRegisterAll" resultType="indi.btt.domain.VirusRegister">
+		SELECT * FROM
+		sqltest.t_serious order by s_date desc;
+	</select>
+</mapper>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace:命名空间：一定唯一 ,必须是某个接口的完全限定名 -->
+<mapper namespace="indi.btt.dao.CarRegisterDao">
+
+	<insert id="addCarRegister" parameterType="indi.btt.domain.CarRegister">
+		INSERT INTO
+		t_car
+		(u_id, c_date, c_hour, c_reason)
+		VALUES
+		(#{u_id}, #{c_date}, #{c_hour},
+		#{c_reason});
+	</insert>
+
+	<select id="queryNextDayCarRegister" resultType="indi.btt.domain.CarRegisterResult">
+		SELECT
+		c.u_id,c.c_date,c.c_hour,c.c_reason,u.u_name,u.u_phone FROM
+		sqltest.t_car as c, sqltest.t_user as u
+		where c.u_id = u.u_id
+		and
+		TO_DAYS(c_date) - TO_DAYS( NOW( ) ) = 1;
+	</select>
+
+	<select id="queryAfterCarRegister" resultType="indi.btt.domain.CarRegisterResult">
+		SELECT
+		c.u_id,c.c_date,c.c_hour,c.c_reason,u.u_name,u.u_phone FROM
+		sqltest.t_car as c, sqltest.t_user as u
+		where c.u_id = u.u_id
+		and
+		TO_DAYS(c_date) - TO_DAYS( NOW( ) ) >= 1
+		order by c.c_date asc;
+	</select>
+
+</mapper>

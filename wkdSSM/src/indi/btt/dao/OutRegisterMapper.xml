@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace:命名空间：一定唯一 ,必须是某个接口的完全限定名 -->
+<mapper namespace="indi.btt.dao.OutRegisterDao">
+
+	<insert id="addOutRegister" parameterType="indi.btt.domain.OutRegister">
+		INSERT INTO
+		t_outregister (u_id,date,time,name,phone,outTime,reason,isFriend)
+		VALUES (#{u_id}, #{date}, #{time}, #{name}, #{phone}, #{outTime},
+		#{reason}, #{isFriend});
+	</insert>
+
+	<select id="queryOutRegisterByDate" parameterType="String"
+		resultType="indi.btt.domain.OutRegister">
+		SELECT * FROM sqltest.t_outregister where date <![CDATA[ >= ]]> 
+		#{0} and o_id not in
+		(SELECT o.o_id FROM sqltest.t_outregister as o
+		where o.date = #{0} and o.time <![CDATA[ < ]]>  #{1} );
+	</select>
+
+	<select id="queryOutRegisterAll" resultType="indi.btt.domain.OutRegister">
+		SELECT * FROM
+		sqltest.t_outregister;
+	</select>
+</mapper>

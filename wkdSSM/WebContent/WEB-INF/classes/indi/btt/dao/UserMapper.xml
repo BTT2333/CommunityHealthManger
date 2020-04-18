@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace:命名空间：一定唯一 ,必须是某个接口的完全限定名 -->
+<mapper namespace="indi.btt.dao.UserDao">
+
+	<select id="queryUserByUPhone" parameterType="String"
+		resultType="indi.btt.domain.User">
+		select * from t_user where u_phone = #{u_phone}
+	</select>
+	
+	<select id="queryUserByID" parameterType="int"
+		resultType="indi.btt.domain.User">
+		select * from t_user where u_id = #{u_id}
+	</select>
+
+	<insert id="addUser" parameterType="indi.btt.domain.User">
+		INSERT INTO t_user (u_name,
+		u_phone, u_age, u_sex, u_address, u_doorplate, u_pwd)
+		VALUES (#{u_name}, #{u_phone}, #{u_age}, #{u_sex}, #{u_address}, #{u_doorplate}, #{u_pwd});
+	</insert>
+</mapper>

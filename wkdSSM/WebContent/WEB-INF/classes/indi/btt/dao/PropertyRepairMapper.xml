@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace:命名空间：一定唯一 ,必须是某个接口的完全限定名 -->
+<mapper namespace="indi.btt.dao.PropertyRepairDao">
+
+	<insert id="addPropertyRepair" parameterType="indi.btt.domain.PropertyRepair">
+		INSERT INTO
+		t_property
+		(u_id, p_name, p_address, p_phone, p_type, p_question,
+		p_isCompleted)
+		VALUES (#{u_id}, #{p_name}, #{p_address}, #{p_phone},
+		#{p_type},
+		#{p_question}, #{p_isCompleted});
+	</insert>
+
+	<select id="queryPropertyRepairAll" resultType="indi.btt.domain.PropertyRepair">
+		SELECT * FROM
+		sqltest.t_property order by p_id desc;
+	</select>
+
+	<select id="queryPropertyRepairNotCompleted" resultType="indi.btt.domain.PropertyRepair">
+		SELECT *
+		FROM sqltest.t_property where p_isCompleted = 0 order by p_id asc;
+	</select>
+</mapper>
